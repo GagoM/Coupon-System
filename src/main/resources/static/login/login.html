@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Login Page</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="loginStyle.css">
+<link rel="stylesheet" href="mediaQuery.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+</head>
+
+<body>
+	<script>
+	$('.carousel').carousel({
+		interval: false
+	}); 
+	
+	</script>
+
+	<div class="container">
+		<h2>
+			<span>Welcome.</span><br>Please choose your client type
+		</h2>
+		<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>
+
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner">
+				<div class="item active">
+					<div class="theSliderImg" id="slide_1"></div>
+					<!-- <img src="slide1.jpg"> -->
+					<div class="carousel-caption">
+						<!-- Login feature -->
+						<a href="#" class="btn btn-primary btn-lg" data-toggle="collapse"
+							data-target="#adminDetails">Login</a>
+						<div id="adminDetails" class="collapse">
+							<form action="http://35.158.211.162:8080/coupon1/loginservlet" method="post">
+								username <input type="text" name="username" class="admin">
+								<br>
+								<br> password <input type="password" name="password"
+									class="admin"> <input name="userType" type="hidden"
+									value="Admin"> <br>
+								<br>
+								<button id="adminlog" type="submit" class="btn btn-primary btn-sm">
+								LOG ME IN</button>
+							</form>
+						</div>
+
+						<h1>ADMIN</h1>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="theSliderImg" id="slide_2"></div>
+					<div class="carousel-caption">
+						<!-- Login feature -->
+						<a href="#" class="btn btn-primary btn-lg" data-toggle="collapse"
+							data-target="#companyDetails">Login</a>
+						<div id="companyDetails" class="collapse">
+							<form action="http://35.158.211.162:8080/coupon1/loginservlet" method="post">
+
+								username <input name="username" type="text" class="company">
+								<br>
+								<br> password <input name="password" type="password"
+									class="company"> <br>
+								<br> <input name="userType" type="hidden" value="Company">
+
+								<button type="submit" class="btn btn-primary btn-sm">LOG
+									ME IN</button>
+							</form>
+						</div>
+						<h1>COMPANY</h1>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="theSliderImg" id="slide_3"></div>
+					<div class="carousel-caption">
+						<!-- Login feature -->
+						<a href="#" class="btn btn-primary btn-lg" data-toggle="collapse"
+							data-target="#customerDetails">Login</a>
+						<div id="customerDetails" class="collapse">
+							<form action="http://35.158.211.162:8080/coupon1/loginservlet">
+								username <input name="username" type="text" class="customer">
+								<br>
+								<br> password <input name="password" type="password"
+									class="customer"> <input name="userType" type="hidden"
+									value="Customer"> <br>
+								<br>
+								<button type="submit" class="btn btn-primary btn-sm">LOG
+									ME IN</button>
+							</form>
+						</div>
+						<h1>CUSTOMER</h1>
+					</div>
+				</div>
+			</div>
+
+			<!-- Left and right controls -->
+			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span> <span
+				class="sr-only">Previous</span>
+			</a> <a class="right carousel-control" href="#myCarousel"
+				data-slide="next"> <span
+				class="glyphicon glyphicon-chevron-right"></span> <span
+				class="sr-only">Next</span>
+			</a>
+		</div>
+	</div>
+
+</body>
+</html>

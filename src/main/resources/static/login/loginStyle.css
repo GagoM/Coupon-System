@@ -1,0 +1,73 @@
+
+.container {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	height: 100vh;
+	overflow: hidden;
+}
+
+h2 {
+	position: absolute;
+	/* text-align: center; */
+	top: 18%;
+	left: 50%;
+	transform: translate(-50%, 0);
+	z-index: 1;
+	color: #fff;
+	line-height: 1.2;
+	font-size: 2em;
+}
+
+h2 span {
+	font-size: 2em;
+}
+
+.item {
+	background-color: #000;
+	height: 100vh;
+}
+
+.item img {
+	width: 100%;
+	opacity: 0.8;
+}
+
+form input {
+	margin-right: 5%;
+}
+
+.right, .left {
+	transition: all 0.2s;
+}
+
+.btn {
+	margin-bottom: 2%;
+	transition: all 0.2s;
+}
+
+.theSliderImg {
+	opacity: 0.5;
+	height: 100vh;
+	background-position: center;
+	background-size: cover;
+}
+
+#slide_1 {
+	background-image: url(new_images/olu-eletu-13086.jpg);
+	/*Admin*/
+}
+
+#slide_2 {
+	background-image: url(new_images/sean-pollock-203658.jpg);
+	/*Company*/
+}
+
+#slide_3 {
+	background-image: url(new_images/rawpixel-com-323215.jpg);
+	/*Customer*/
+}
+
+input {
+	background-color: black;
+}

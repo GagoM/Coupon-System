@@ -1,0 +1,10 @@
+/nThu Dec 28 14:12:51 IST 2017:"hello ! my name is gilad and im trying to log this message into a file."
+Thu Dec 28 14:13:55 IST 2017:hello ! my name is gilad and im trying to log this message into a file.
+Thu Dec 28 14:14:10 IST 2017:hello ! my name is gilad and im trying to log this message into a file.
+Thu Dec 28 14:14:10 IST 2017:hello ! my name is gilad and im trying to log this message into a file.
+Thu Dec 28 14:14:11 IST 2017:hello ! my name is gilad and im trying to log this message into a file.
+Thu Dec 28 14:14:11 IST 2017:hello ! my name is gilad and im trying to log this message into a file.
+Thu Dec 28 14:42:59 IST 2017:blabla bla
+Thu Dec 28 14:56:35 IST 2017:blabla blaasdasd
+Thu Dec 28 14:57:40 IST 2017:blabla blaasdasd
+Thu Dec 28 15:06:18 IST 2017:info:company:asdasdwer created by admin
