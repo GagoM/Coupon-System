@@ -165,7 +165,7 @@ return customerFacade;
 			public void logout(HttpServletRequest request,HttpSession session) throws CouponSystemException, FileNotFoundException {
 				CustomerFacade  customerFacade = getCustomerFacade(request);
 				if(customerFacade!=null){
-					String username = (String) request.getServletContext().getAttribute("username");
+					String username = (String) request.getSession().getAttribute("username");
 					LoggerRest logger = new LoggerRest();
 					String logMessage = "customer:'"+ username +"' has logged out from the system";
 					logger.logToFile(logMessage);

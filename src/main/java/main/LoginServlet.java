@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
 			try {
 				facade = CouponSystem.getInstance().login(username, pwd, ClientType.Admin);
 			} catch (SQLException | CouponSystemException e) {
-				response.sendRedirect("http://35.158.211.162:8080/coupon1/loginerror/error.html");
+				response.sendRedirect("/coupon1/loginerror/error.html");
 				e.printStackTrace();
 			}
 			if(facade!=null){
@@ -63,14 +63,14 @@ public class LoginServlet extends HttpServlet {
 				} catch (CouponSystemException e) {
 					e.printStackTrace();
 				}
-				response.sendRedirect("http://35.158.211.162:8080/coupon1/admin/index.html");
+				response.sendRedirect("/coupon1/admin/index.html");
 			}
 			
 		case "Company":
 			try {
 				facade = CouponSystem.getInstance().login(username, pwd, ClientType.Company);
 			} catch (SQLException | CouponSystemException e) {
-				response.sendRedirect("http://35.158.211.162:8080/coupon1/loginerror/error.html");
+				response.sendRedirect("/coupon1/loginerror/error.html");
 				e.printStackTrace();
 			}
 			if(facade!=null){
@@ -84,7 +84,7 @@ public class LoginServlet extends HttpServlet {
 				} catch (CouponSystemException e) {
 					e.printStackTrace();
 				}
-				response.sendRedirect("http://35.158.211.162:8080/coupon1/company/index.html");
+				response.sendRedirect("/coupon1/company/index.html");
 			}
 		
 		
@@ -92,7 +92,7 @@ public class LoginServlet extends HttpServlet {
 		try {
 			facade = CouponSystem.getInstance().login(username, pwd, ClientType.Customer);
 		} catch (SQLException | CouponSystemException e) {
-			response.sendRedirect("http://35.158.211.162:8080/coupon1/loginerror/error.html");
+			response.sendRedirect("/coupon1/loginerror/error.html");
 			e.printStackTrace();
 		}
 		if(facade!=null){
@@ -106,7 +106,7 @@ public class LoginServlet extends HttpServlet {
 			} catch (CouponSystemException e) {
 				e.printStackTrace();
 			}
-			response.sendRedirect("http://35.158.211.162:8080/coupon1/customer/index.html");
+			response.sendRedirect("/coupon1/customer/index.html");
 		}
 	}
 	
