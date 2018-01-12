@@ -58,13 +58,10 @@ public class LoginServlet extends HttpServlet {
 				request.getSession().setAttribute("authenticated", true);
 				LoggerRest logger = new LoggerRest();
 				String logMessage = clientType+": '" + username + "' has logged into the system";
-				try {
-					logger.logToFile(logMessage);
-				} catch (CouponSystemException e) {
-					e.printStackTrace();
+						logger.logToFile(logMessage);
+						// TODO Auto-generated catch block
 				}
 				response.sendRedirect("/coupon1/admin/index.html");
-			}
 			
 		case "Company":
 			try {
@@ -79,11 +76,8 @@ public class LoginServlet extends HttpServlet {
 				request.getSession().setAttribute("authenticated", true);
 				LoggerRest logger = new LoggerRest();
 				String logMessage = clientType+": '" + username + "' has logged into the system";
-				try {
-					logger.logToFile(logMessage);
-				} catch (CouponSystemException e) {
-					e.printStackTrace();
-				}
+						logger.logToFile(logMessage);
+						// TODO Auto-generated catch block
 				response.sendRedirect("/coupon1/company/index.html");
 			}
 		
@@ -101,11 +95,8 @@ public class LoginServlet extends HttpServlet {
 			request.getSession().setAttribute("authenticated", true);
 			LoggerRest logger = new LoggerRest();
 			String logMessage = clientType+": '" + username + "' has logged into the system";
-			try {
-				logger.logToFile(logMessage);
-			} catch (CouponSystemException e) {
-				e.printStackTrace();
-			}
+					logger.logToFile(logMessage);
+					// TODO Auto-generated catch block
 			response.sendRedirect("/coupon1/customer/index.html");
 		}
 	}

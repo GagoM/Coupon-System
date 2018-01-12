@@ -43,7 +43,6 @@ import core.javaBeans.Customer;
 		public AdminFacade getAdminFacade(HttpServletRequest request) {
 			String userName = (String) request.getSession().getAttribute("username");
 			AdminFacade adminFacade = (AdminFacade) request.getSession().getAttribute(userName+"facade");
-//			AdminFacade adminFacade = (AdminFacade) CouponSystem.getInstance().login("admin", "1234", "admin");
 			return adminFacade;
 		}
 	
@@ -54,7 +53,6 @@ import core.javaBeans.Customer;
 			if (adminFacade != null) {
 				Company company = c.convertToCompany();
 				adminFacade.createCompany(company);
-//				Logger logger = Log4J.getLogger();
 			}
 			
 		}
