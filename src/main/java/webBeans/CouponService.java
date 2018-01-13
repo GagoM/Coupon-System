@@ -8,13 +8,16 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-import core.javaBeans.Company;
 import core.javaBeans.Coupon;
 import core.javaBeans.CouponType;
 
 
 @XmlRootElement
 public class CouponService implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private long id;
 	private String title;
 	private Date startDate;

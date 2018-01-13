@@ -7,10 +7,13 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-import core.javaBeans.Company;
 import core.javaBeans.Customer;
 @XmlRootElement
 public class CustomerService implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private long id;
 	private String custName;
 	private String password;

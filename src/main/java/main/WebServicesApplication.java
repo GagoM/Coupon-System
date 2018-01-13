@@ -35,8 +35,7 @@ public class WebServicesApplication {
 	}
 	
 	public void configure(WebSecurity web) throws Exception {
-//		web.ignoring().antMatchers("/admin/adminlogincheck");
-//		web.ignoring().antMatchers("/login/*");
+
 
 	}
 }
