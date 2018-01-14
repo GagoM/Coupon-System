@@ -32,6 +32,7 @@ public class LoginServlet extends HttpServlet {
 		String clientType = request.getParameter("userType");
 		System.out.println(username + " " + pwd + " " + clientType);
 		CouponClientFacade facade = null;
+		
 
 		switch (clientType) {
 		case "Admin":

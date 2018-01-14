@@ -28,11 +28,12 @@ public class SessionAuthFilter implements Filter {
 
 		HttpServletRequest servletrequest = (HttpServletRequest) request;
 		HttpSession session = servletrequest.getSession();
-
-		boolean authenticated = false;
+		boolean authenticated = true;
 
 		if (session.getAttribute("authenticated") != null) {
 			authenticated = (boolean) session.getAttribute("authenticated");
+		}else{
+			authenticated=false;
 		}
 
 		if (authenticated) {

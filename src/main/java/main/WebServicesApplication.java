@@ -27,10 +27,10 @@ public class WebServicesApplication {
 		beanFactory.autowireBean(sessionAuthFilter);
 
 		filterRego.setFilter(sessionAuthFilter);
-		filterRego.addUrlPatterns("/coupon1/admin/*");
-		filterRego.addUrlPatterns("/coupon1/company/*");
-		filterRego.addUrlPatterns("/coupon1/customer/*");
-		filterRego.addUrlPatterns("/coupon1/logger/*");
+		filterRego.addUrlPatterns("/admin/*");
+		filterRego.addUrlPatterns("/company/*");
+		filterRego.addUrlPatterns("/customer/*");
+		filterRego.addUrlPatterns("/logger/*");
 		return filterRego;
 	}
 	
