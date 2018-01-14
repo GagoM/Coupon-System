@@ -7,7 +7,7 @@ http://ec2-35-158-211-162.eu-central-1.compute.amazonaws.com:8080/coupon1/login/
 - **admin** - can add, update, delete and get companies and customers to/from the DB
 - **company** - add, update delete and get coupons from/to DB
 - **cutomer** - purchase coupons, view his purchased coupons list<br><br><br>
-![alt text](https://media.giphy.com/media/l49JVDKa7QN0qlKxi/giphy.gif)
+![alt text](https://media.giphy.com/media/l0HU3izAAQJzXOzTy/giphy.gif)
 ## key features
 ### BackEnd
 - Spring MVC
