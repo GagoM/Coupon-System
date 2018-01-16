@@ -1,0 +1,146 @@
+<div class="container">
+  <div class="jumbotron">
+    <h2 class="text-center">Purchased Coupons List</h2>
+  </div>
+  <div id="wrapper" class="wrapper">
+    <div class="showOption text-center">
+      <h5>Show In:</h5>
+      <button class="btn btn-default btn-sm" (click)="changeShow('table')">Table</button>
+      <button class="btn btn-default btn-sm" (click)="changeShow('gallery')">Gallery</button>
+    </div>
+    <div class="filters text-center">
+      <h4>Filter by:</h4>
+      <button class="btn btn-info btn-sm" data-toggle="collapse" data-target="#insertPrice" data-parent="#myGroup">price</button>
+
+      <button class="btn btn-info btn-sm" data-toggle="collapse" data-target="#insertType" data-parent="#myGroup">type</button>
+
+      <button class="btn btn-info btn-sm" (click)="getAllPurchasedCoupons()">Show All</button>
+
+      <div class="col">
+        <div id="insertPrice" class="collapse">
+          <label for="price">Insert maximum price:</label>
+          <input type="number" [(ngModel)]="priceToSort">
+          <button class="btn btn-warning btn-sm" (click)="getAllPurchasedCouponsByPrice()">SORT!</button>
+        </div>
+
+        <div id="insertType" class="collapse">
+          <div class="row">
+            <label for="type">choose type:</label>
+          </div>
+          <div class="row">
+            <select class="center-block" [(ngModel)]="typeToSort">
+              <option>RESTAURANTS</option>
+              <option>ELECTRICITY</option>
+              <option>FOOD</option>
+              <option>HEALTH</option>
+              <option>SPORTS</option>
+              <option>CAMPING</option>
+              <option>TRAVELING</option>
+            </select>
+          </div>
+          <button class="btn btn-warning btn-sm" (click)="getAllPurchasedCouponsByType()">SORT!</button>
+        </div>
+      </div>
+    </div>
+    <div class="center-block text-center" *ngIf="loadingCoupons">
+      <div class="loader"></div>
+      Loading Coupons...
+    </div>
+    <div class="div">
+      <table class="table table-striped table-hover" *ngIf="showOption==='table'">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Start Date</th>
+            <th>Expiration Date</th>
+            <th>Amount</th>
+            <th>Type</th>
+            <th>Message</th>
+            <th>Price</th>
+            <th>Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="clickable-row" data-toggle="modal" data-target="#myModal" *ngFor="let coupon of coupons" (click)="setCoupon(coupon)">
+            <td>{{ coupon.getId }}</td>
+            <td>{{ coupon.getTitle }}</td>
+            <td>{{ coupon.getStartDate }}</td>
+            <td>{{ coupon.getEndDate }}</td>
+            <td>{{ coupon.getAmount }}</td>
+            <td>{{ coupon.getType }}</td>
+            <td>{{ coupon.getMessage }}</td>
+            <td>{{ coupon.getPrice }}</td>
+            <td>
+              <img src="{{ coupon.getImage }}" style="block-size:50px;">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="showGallery" *ngIf="showOption==='gallery'">
+    <div class="row">
+      <div class="col-lg-3" *ngFor="let coupon of coupons">
+        <a (click)="setCoupon(coupon)">
+          <div class="panel panel-default">
+            <div class="panel-heading text-center">
+              <h4 class="panel-title">{{ coupon.getTitle }}</h4>
+
+
+              <button (click)="setCoupon(coupon)" class="btn btn-default btn-xs" data-toggle="modal" data-target="#couponDetails">expand details</button>
+            </div>
+            <div class="panel-body">
+
+
+              <img class="center-block" src="{{ coupon.getImage }}" style="block-size:200px;">
+            </div>
+          </div>
+
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+  <!-- Modal -->
+  <div id="couponDetails" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title text-center">{{ coupon.getTitle }}</h4>
+
+        </div>
+        <div class="modal-body center-block">
+
+          <span class="label label-info">Start Date:</span> {{coupon.getStartDate}}
+          <br>
+          <span class="label label-info">Expiration Date: </span> {{coupon.getEndDate}}
+          <br>
+          <span class="label label-info">Amount:</span> {{coupon.getAmount}}
+          <br>
+          <span class="label label-info">Coupon Type:</span> {{coupon.getType}}
+          <br>
+          <span class="label label-info">Message:</span> {{coupon.getMessage}}
+          <br>
+          <span class="label label-info">Price:</span> {{coupon.getPrice}}
+          <br>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>

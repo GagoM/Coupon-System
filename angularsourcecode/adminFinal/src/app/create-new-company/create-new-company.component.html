@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="https://npmcdn.com/sweetalert2@4.0.15/dist/sweetalert2.min.css">
+<script src="https://npmcdn.com/sweetalert2@4.0.15/dist/sweetalert2.min.js"></script>
+
+<div class="container">
+  <div class="jumbotron">
+    <h2 class="text-center">Create New Company</h2>
+  </div>
+  <form [formGroup]="newCompanyForm" (ngSubmit)="createCompany()">
+    <div class="row">
+      <div class="form-group col-xs-11 col-md-5">
+        <label for="name">Company Name:</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="c.setName" formControlName="compName">
+        <div class="invalid-feedback" *ngIf="!newCompanyForm.get('compName').valid && newCompanyForm.get('compName').touched
+         && !newCompanyForm.get('compName').hasError('nameIsAlreadyTaken')">
+          please insert valid company name!
+        </div>
+        <div class="invalid-feedback" *ngIf="newCompanyForm.get('compName').hasError('nameIsAlreadyTaken')">
+          This Company Name already exist in the system!
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-11 col-md-5">
+        <label for="email">Company Email:</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="c.setEmail" formControlName="email">
+        <div class="invalid-feedback" *ngIf="!newCompanyForm.get('email').valid && newCompanyForm.get('email').touched">
+          please insert a valid email!
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-11 col-md-5">
+        <label for="pwd">Company Password:</label>
+        <input type="password" class="form-control" id="pwd" [(ngModel)]="c.setPassword" formControlName="password">
+        <div class="invalid-feedback" *ngIf="!newCompanyForm.get('password').valid && newCompanyForm.get('password').touched">
+          please insert a valid password!
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg" [disabled]="!newCompanyForm.valid">Add New Company</button>
+  </form>
+
+  <hr>
+
+</div>
