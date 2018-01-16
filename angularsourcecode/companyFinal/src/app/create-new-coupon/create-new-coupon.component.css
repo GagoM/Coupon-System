@@ -1,0 +1,63 @@
+input.ng-invalid.ng-touched{
+    border: 1px solid rgba(172, 0, 0, 0.795);
+     
+    }
+    input.ng-valid.ng-touched{
+        border: 1px solid green;
+         
+        }
+    .invalid-feedback{
+color: rgba(172, 0, 0, 0.795);
+font-size:small;
+    }
+
+
+    .jumbotron {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url('../../assets/slide2.jpg');
+        background-position: center;
+        background-size: cover;
+        color: #fff;
+    }
+    
+
+
+    @media only screen and (max-width: 370px) and (max-height: 640px) {
+
+      .container {
+       padding: 0;
+       margin: 0;
+       overflow: hidden;
+        }
+        .jumbotron {
+            padding-top: 50px;
+            width: 100%;
+            border-radius: 0;
+            margin-bottom: 5px;
+        
+        }
+
+        .div {
+            overflow-x: scroll;
+        }
+
+        thead {
+            background-color: #fff;
+            width: 100%;
+        }
+
+        .btn {
+            margin-left: 45px;
+            margin-bottom: 5px;
+        }
+    .btn-danger {
+        padding-left: 14px;
+    }
+.modal-footer {
+padding-right: 68px;
+}
+.btn-primary {
+    margin-left: 60px;
+}
+
+    }
+   

@@ -8,6 +8,7 @@ target/
 .project
 .settings
 .springBeans
+.zip
 
 ### IntelliJ IDEA ###
 .idea

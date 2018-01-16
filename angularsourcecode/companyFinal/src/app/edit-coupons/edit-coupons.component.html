@@ -1,0 +1,155 @@
+<link rel="stylesheet" href="https://npmcdn.com/sweetalert2@4.0.15/dist/sweetalert2.min.css">
+<script src="https://npmcdn.com/sweetalert2@4.0.15/dist/sweetalert2.min.js"></script>
+
+<div class="container">
+  <div class="jumbotron">
+    <h2 class="text-center">Coupons List</h2>
+  </div>
+  <div class="showOption text-center">
+    <h5>Show In:</h5>
+    <button class="btn btn-default btn-sm" (click)="changeShow('table')">Table</button>
+    <button class="btn btn-default btn-sm" (click)="changeShow('gallery')">Gallery</button>
+  </div>
+  <div class="text-center" id="myGroup">
+    <h4>
+      <span class="glyphicon glyphicon-filter"></span>Filter by:</h4>
+    <button class="btn btn-info btn-sm" data-toggle="collapse" data-target="#insertPrice" data-parent="#myGroup">price</button>
+
+    <button class="btn btn-info btn-sm" data-toggle="collapse" data-target="#insertDate" data-parent="#myGroup">date</button>
+
+    <button class="btn btn-info btn-sm" data-toggle="collapse" data-target="#insertType" data-parent="#myGroup">type</button>
+
+    <button class="btn btn-info btn-sm" (click)="getAllCoupons()">Show All</button>
+
+    <div class="col-md-12">
+      <div id="insertPrice" class="collapse">
+        <label for="price">Insert maximum price:</label>
+        <input type="number" [(ngModel)]="priceToSort">
+        <button class="btn btn-warning btn-sm" (click)="getCouponsByPrice()">Filter!</button>
+      </div>
+      <div id="insertDate" class="collapse">
+        <label for="date">Insert Maximum Expiration Date:</label>
+        <input type="date" [(ngModel)]="dateToSort">
+        <button class="btn btn-warning btn-sm" (click)="getCouponsByDate()">Filter!</button>
+      </div>
+      <div id="insertType" class="collapse">
+        <label for="date">choose type:</label>
+        <select class="form-control" [(ngModel)]="typeToSort">
+          <option>RESTAURANTS</option>
+          <option>ELECTRICITY</option>
+          <option>FOOD</option>
+          <option>HEALTH</option>
+          <option>SPORTS</option>
+          <option>CAMPING</option>
+          <option>TRAVELING</option>
+        </select>
+        <button class="btn btn-warning btn-sm" (click)="getCouponsByType()">Filter!</button>
+      </div>
+    </div>
+  </div>
+  <div class="center-block text-center" *ngIf="loadingCoupons">
+    <div class="loader"></div>
+    Loading Companies...
+  </div>
+  <div class="div" *ngIf="showOption==='table'">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Start Date</th>
+          <th>Expiration Date</th>
+          <th>Amount</th>
+          <th>Coupon Type</th>
+          <th>Message</th>
+          <th>Price</th>
+          <th>Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="clickable-row" data-toggle="modal" data-target="#myModal" *ngFor="let coupon of coupons" (click)="setCoupon(coupon)">
+          <td>{{ coupon.getId }}</td>
+          <td>{{ coupon.getTitle }}</td>
+          <td>{{ coupon.getStartDate }}</td>
+          <td>{{ coupon.getEndDate }}</td>
+          <td>{{ coupon.getAmount }}</td>
+          <td>{{ coupon.getType }}</td>
+          <td>{{ coupon.getMessage }}</td>
+          <td>{{ coupon.getPrice }}</td>
+          <td>
+            <img src="{{ coupon.getImage }}">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="showGallery" *ngIf="showOption==='gallery'">
+    <div class="row">
+      <div class="col-lg-3" *ngFor="let coupon of coupons">
+        <a data-toggle="modal" data-target="#myModal" (click)="setCoupon(coupon)">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <a class="panel-title">{{ coupon.getTitle }}</a>
+
+            </div>
+            <div class="panel-body">
+              <img class="center-block" src="{{coupon.getImage}}">
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="divider">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title text-center">{{ this.coupon.getTitle }}</h4>
+      </div>
+      <div class="modal-body">
+        <img src="{{ coupon.getImage }}" class="center-block">
+        <hr>
+        <div class="row">
+          <button class="btn btn-warning btn-sm center-block" data-toggle="collapse" data-target="#updateForm">Update Coupon</button>
+          <button class="btn btn-danger btn-sm center-block" data-toggle="collapse" (click)="deleteCoupon()">Delete Coupon</button>
+        </div>
+        <hr>
+        <div id="updateForm" class="collapse">
+
+          <form class="form-group center-block" [formGroup]="updateCouponForm" (ngSubmit)="updateCoupon()">
+            <label for="pwd">Type New Price:</label>
+            <input type="number" [(ngModel)]="coupon.setPrice" formControlName="price" class="form-control">
+            <div class="invalid-feedback" *ngIf="!updateCouponForm.get('price').valid && updateCouponForm.get('price').touched">
+              please insert valid coupon price!
+            </div>
+            <label for="pwd">Type New Expiration Date:</label>
+            <input type="date" [(ngModel)]="coupon.setEndDate" formControlName="expirationDate" class="form-control">
+            <div class="invalid-feedback" *ngIf="!updateCouponForm.get('expirationDate').valid && updateCouponForm.get('expirationDate').touched">
+              please insert valid coupon Expiration Date!
+            </div>
+            <button type="submit" class="btn btn-primary center-block">Update</button>
+          </form>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
