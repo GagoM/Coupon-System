@@ -1,0 +1,102 @@
+<link rel="stylesheet" href="https://npmcdn.com/sweetalert2@4.0.15/dist/sweetalert2.min.css">
+<script src="https://npmcdn.com/sweetalert2@4.0.15/dist/sweetalert2.min.js"></script>
+
+<div class="container">
+  <div class="jumbotron">
+    <h2 class="text-center">Create New Coupon</h2>
+  </div>
+
+  <form [formGroup]="newCouponForm" (ngSubmit)="createCoupon()" data-toggle="validator">
+    <div class="row">
+      <div class="form-group has-feedback col-xs-11 col-sm-9 col-lg-5">
+        <label for="name">Coupon Name:</label>
+        <input type="text" class="form-control input-sm" id="name" [(ngModel)]="c.setTitle" formControlName="title">
+        <div class="invalid-feedback" *ngIf="!newCouponForm.get('title').valid && newCouponForm.get('title').touched
+                       &&  !newCouponForm.get('title').hasError('nameIsAlreadyTaken')">
+          please enter a valid name!
+        </div>
+        <div class="invalid-feedback" *ngIf="newCouponForm.get('title').hasError('nameIsAlreadyTaken')">
+          This Coupon Name already exist in the system!
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-11 col-lg-3">
+        <label for="startDate">Coupon Start Date:</label>
+        <input type="date" class="form-control input-sm" [(ngModel)]="c.setStartDate" formControlName="startDate" [min]="today" [(ngModel)]="minExp">
+        <div class="invalid-feedback" *ngIf="!newCouponForm.get('startDate').valid && newCouponForm.get('startDate').touched">
+          please enter a valid start date!
+        </div>
+      </div>
+      <div class="form-group col-xs-11 col-lg-3">
+        <label for="endDate">Coupon Expiration Date:</label>
+        <input type="date" class="form-control input-sm" [(ngModel)]="c.setEndDate" formControlName="endDate" [min]="minExp">
+        <div class="invalid-feedback" *ngIf="!newCouponForm.get('endDate').valid && newCouponForm.get('endDate').touched">
+          please enter a valid Expiration Date!
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-11 col-lg-3">
+        <label for="price">Coupon Price:</label>
+        <input type="number" class="form-control input-sm" [(ngModel)]="c.setPrice" formControlName="price">
+        <div class="invalid-feedback" *ngIf="!newCouponForm.get('price').valid && newCouponForm.get('price').touched">
+          please enter a valid price!
+        </div>
+      </div>
+      <div class="form-group col-xs-11 col-lg-3">
+        <label for="amount">Amount:</label>
+        <input type="number" class="form-control input-sm" [(ngModel)]="c.setAmount" formControlName="amount">
+        <div class="invalid-feedback" *ngIf="!newCouponForm.get('amount').valid && newCouponForm.get('amount').touched">
+          please enter amount!
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-11 col-lg-3">
+        <label for="type">Coupon Type:</label>
+        <select class="form-control input-sm" [(ngModel)]="c.setType" formControlName="type">
+          <option>RESTAURANTS</option>
+          <option>ELECTRICITY</option>
+          <option>FOOD</option>
+          <option>HEALTH</option>
+          <option>SPORTS</option>
+          <option>CAMPING</option>
+          <option>TRAVELING</option>
+        </select>
+        <div class="invalid-feedback" *ngIf="!newCouponForm.get('type').valid && newCouponForm.get('type').touched">
+          please choose a type!
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-11 col-lg-5">
+        <label for="message">Message:</label>
+        <input type="text" class="form-control input-sm" [(ngModel)]="c.setMessage" formControlName="message">
+        <div class="invalid-feedback" *ngIf="!newCouponForm.get('message').valid && newCouponForm.get('message').touched">
+          please enter a message!
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-11 col-lg-5">
+        <label for="image">Image:</label>
+        <input type="text" class="form-control input-sm" [(ngModel)]="c.setImage" formControlName="image">
+        <div class="invalid-feedback" *ngIf="!newCouponForm.get('image').valid && newCouponForm.get('image').touched">
+          please choose image!
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg" [disabled]="!newCouponForm.valid">Add New Coupon</button>
+    <div class="divider">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </form>

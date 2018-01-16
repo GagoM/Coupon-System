@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="jumbotron">
+    <h2 class="text-center">Get Coupon By ID</h2>
+
+  </div>
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <label for="exampleInputEmail1">Coupon ID</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <div class="col-xs-11 col-lg-12">
+        <input type="number" class="form-control text-center" [(ngModel)]="couponId">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <button class="btn btn-primary btn-sm center-block" (click)="getCoupon()">Get Coupon</button>
+  </div>
+
+  <div class="row" id="details" *ngIf="showCoupon && !getError">
+    <div class="col-md-11">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="text-center">
+            <a class="panel-title">{{ coupon.title }}</a>
+          </div>
+        </div>
+        <div class="panel-body">
+          <img src="{{coupon.image}}" class="center-block" style="block-size: 200px">
+          <div class="details" style="margin-left:35%">
+            <span class="label label-info">Start Date:</span> {{coupon.getStartDate}}
+            <br>
+            <span class="label label-info">Expiration Date: </span> {{coupon.getEndDate}}
+            <br>
+            <span class="label label-info">Amount:</span> {{coupon.getAmount}}
+            <br>
+            <span class="label label-info">Coupon Type:</span> {{coupon.getType}}
+            <br>
+            <span class="label label-info">Message:</span> {{coupon.getMessage}}
+            <br>
+            <span class="label label-info">Price:</span> {{coupon.getPrice}}
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-xs-11 col-lg-12">
+      <div class="alert alert-danger" *ngIf="getError">
+        <strong>Failure!</strong> this id isn't exist in the database !
+      </div>
+    </div>
+  </div>
+</div>
