@@ -12,11 +12,15 @@ http://ec2-35-158-211-162.eu-central-1.compute.amazonaws.com:8080/coupon1/login/
 ### BackEnd
 - Spring MVC
 - JDBC
-- AJAX Filter
+- Filter
 - Logger - log4j
+- mySql Cloud
+
 ### FrontEnd
-- Angular 5
+- Angular 5: Directives, AuthGurad, Validation..
 - Mobile Responsive
 - Bootstrap
 - AJAX
+- Sweet Alert library
+- CSS3
 
