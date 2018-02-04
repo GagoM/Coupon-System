@@ -24,3 +24,6 @@ http://ec2-35-158-211-162.eu-central-1.compute.amazonaws.com:8080/coupon1/login/
 - Sweet Alert library
 - CSS3
 
+
+
+[![HitCount](http://hits.dwyl.io/gagom/Coupon-System.svg)](http://hits.dwyl.io/gagom/Coupon-System)
